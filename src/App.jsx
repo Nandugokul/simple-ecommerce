@@ -1,9 +1,16 @@
-import NavBar from "./ui/NavBar/NavBar";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import LandingPage from "./pages/landingPage/LandingPage";
 
 function App() {
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+    },
+  ]);
   return (
     <>
-      <NavBar />
+      <RouterProvider router={routes} />
     </>
   );
 }
