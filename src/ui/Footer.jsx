@@ -8,7 +8,7 @@ function Footer() {
           <h1 className="text-4xl text-white font-bold  mb-6">Newsletter</h1>
           <div>
             <input
-              className="rounded-sm px-3 py-2"
+              className="rounded-sm px-3 py-2 focus:outline-none"
               type="text"
               placeholder="Mail ID"
             />
