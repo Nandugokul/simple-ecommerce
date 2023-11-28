@@ -1,21 +1,21 @@
-import NavBar from "../../ui/NavBar/NavBar";
+import NavBar from "../../ui/NavBar";
+import ProductDisplay from "./components/ProductDisplay";
+import HeroSection from "./components/HeroSection";
+import HarmoniousLiving from "./components/HarmoniousLiving";
+import ProductCarousel from "./components/ProductCarousel";
+import ComfortableAndElegent from "./components/ComfortableAndElegent";
+import Footer from "../../ui/Footer";
 
 function LandingPage() {
   return (
     <>
       <NavBar />
-      <div className="flex h-[80vh] overflow-hidden">
-        <div className="object-cover w-[48%]  mr-3">
-          <img src="../../../public/img/header/home-img-1.jpg" alt="image 1" />
-        </div>
-        <div className="object-cover w-[32%] mr-3">
-          <img src="../../../public/img/header/home-img-2.jpg" alt="image 2" />
-        </div>
-        <div className="w-[30%]">
-          <img src="../../../public/img/header/home-img-3.jpg" alt="image 3" />
-          <img src="../../../public/img/header/home-img-4.jpg" alt="image 4" />
-        </div>
-      </div>
+      <HeroSection />
+      <ProductDisplay />
+      <HarmoniousLiving />
+      <ProductCarousel />
+      <ComfortableAndElegent />
+      <Footer />
     </>
   );
 }
