@@ -6,7 +6,7 @@ function NavBar() {
       <img src="../../../public/img/newlogo2.png" alt="logo" className="w-20" />
       <div className="flex space-x-8">
         <Link>CATEGORIES</Link>
-        <Link>PRODUCT PAGE</Link>
+        <Link to={"/productPage"}>PRODUCT PAGE</Link>
         <img
           src="../../../public/img/icons/icons8-cart.gif"
           alt="cartIcon"
