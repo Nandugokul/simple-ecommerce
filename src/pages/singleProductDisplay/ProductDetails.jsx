@@ -1,18 +1,52 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
-import NavBar from "../../ui/NavBar";
-import { items } from "../../data/AllData";
-import ProductCarousel from "../landingPage/components/ProductCarousel";
+import NavBar from "../../ui/NavBar.jsx";
+import { items } from "../../data/AllData.js";
+import ProductCarousel from "../landingPage/components/ProductCarousel.jsx";
 import Footer from "../../ui/Footer.jsx";
+import { useEffect, useState } from "react";
 
 function SingleProductDisplay() {
-  const params = useParams();
-  const productId = params.productId;
+  const { productId } = useParams();
   let productToDisplay;
   if (productId === "loadFromHome") {
     productToDisplay = items[5];
   } else {
     productToDisplay = items.find((obj) => obj.id === Number(productId));
   }
+
+  const [imageChangeOnHover, setImageChangeOnHover] = useState(
+    productToDisplay.img
+  );
+  const [priceChange, setpriceChange] = useState({
+    price: productToDisplay.price,
+    quantity: 1,
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setImageChangeOnHover(productToDisplay.img);
+    setpriceChange({ quantity: 1, price: productToDisplay.price });
+  }, [productToDisplay.id]);
+
+  const handleImageChangeOnMouseOver = (e) => {
+    setImageChangeOnHover(e.target.src);
+  };
+  const handlePriceAndQuantityChange = (func) => {
+    if (func === "inc") {
+      setpriceChange((prevPriceChange) => ({
+        ...prevPriceChange,
+        quantity: prevPriceChange.quantity + 1,
+        price: productToDisplay.price * (prevPriceChange.quantity + 1),
+      }));
+    } else if (func === "dec" && priceChange.quantity > 1) {
+      setpriceChange((prevPriceChange) => ({
+        ...prevPriceChange,
+        quantity: prevPriceChange.quantity - 1,
+        price: productToDisplay.price * (prevPriceChange.quantity - 1),
+      }));
+    }
+  };
 
   return (
     <>
@@ -22,25 +56,28 @@ function SingleProductDisplay() {
         <div className="grid lg:grid-cols-2 ">
           <div className="grid grid-rows-[40vh_1fr]">
             <img
-              src={productToDisplay.img}
+              src={imageChangeOnHover}
               alt=""
               className="object-contain h-full w-3/4 mx-auto"
             />
-            <div className="grid grid-cols-3 gap-4 mt-4">
+            <div className="grid grid-cols-3 gap-4 mt-4 ">
               <img
                 src={productToDisplay.img}
                 alt=""
-                className="object-contain w-full h-[10vh] m-auto"
+                className="object-contain w-full h-[10vh] m-auto hover:blur-sm"
+                onMouseOver={handleImageChangeOnMouseOver}
               />
               <img
                 src={productToDisplay.otherImgs[0]}
                 alt=""
-                className="object-contain w-full h-[10vh] m-auto"
+                className="object-contain w-full h-[10vh] m-auto hover:blur-sm"
+                onMouseOver={handleImageChangeOnMouseOver}
               />
               <img
                 src={productToDisplay.otherImgs[1]}
                 alt=""
-                className="object-contain w-full h-[10vh] m-auto"
+                className="object-contain w-full h-[10vh] m-auto hover:blur-sm"
+                onMouseOver={handleImageChangeOnMouseOver}
               />
             </div>
           </div>
@@ -52,18 +89,28 @@ function SingleProductDisplay() {
             <div className="grid md:grid-cols-3 my-12">
               <h4 className="text-3xl font-semibold text-center ">Quantity</h4>
               <div className="flex justify-center">
-                <button className="border-2 border-solid border-black px-4 py-2 bg-white hover:bg-transparent">
+                <button
+                  onClick={() => {
+                    handlePriceAndQuantityChange("dec");
+                  }}
+                  className="border-2 border-solid border-black px-4 py-2 bg-white hover:bg-transparent"
+                >
                   -
                 </button>
                 <span className="border-2 border-solid border-black px-4 p-2 border-x-0">
-                  1
+                  {priceChange.quantity}
                 </span>
-                <button className="border-2 border-solid border-black px-4 py-2  bg-white hover:bg-transparent">
+                <button
+                  onClick={() => {
+                    handlePriceAndQuantityChange("inc");
+                  }}
+                  className="border-2 border-solid border-black px-4 py-2  bg-white hover:bg-transparent"
+                >
                   +
                 </button>
               </div>
               <span className="text-3xl font-semibold text-center">
-                {productToDisplay.price}$
+                {priceChange.price}$
               </span>
             </div>
             <div className="grid grid-cols-2 ">
