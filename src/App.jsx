@@ -9,7 +9,7 @@ function App() {
       element: <LandingPage />,
     },
     {
-      path: "/productPage",
+      path: "/productPage/:productId",
       element: <SingleProductDisplay />,
     },
   ]);

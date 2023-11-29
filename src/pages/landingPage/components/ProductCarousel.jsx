@@ -52,6 +52,7 @@ function ProductCarousel() {
               return (
                 <div key={item.id}>
                   <SingleProduct
+                    id={item.id}
                     styles={"m-2"}
                     imgSrc={item.img}
                     itemName={item.description}

@@ -11,6 +11,7 @@ function ProductDisplay() {
           {limitedItems.map((item) => (
             <SingleProduct
               key={item.id}
+              id={item.id}
               imgSrc={item.img}
               itemName={item.description}
               price={item.price}
