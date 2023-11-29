@@ -11,7 +11,7 @@ function NavBar() {
         />
       </Link>
       <div className="flex space-x-8">
-        <Link>CATEGORIES</Link>
+        <Link to={"/productListings/category"}>CATEGORIES</Link>
         <Link to={"/productPage/loadFromHome"}>PRODUCT PAGE</Link>
         <img
           src="../../../public/img/icons/icons8-cart.gif"
