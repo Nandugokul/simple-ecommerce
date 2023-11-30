@@ -3,32 +3,15 @@ import { useEffect, useState } from "react";
 
 function SingleItemInCart(props) {
   const [cartItem, setCartItem] = useState(props.cartItemData);
-  const [cartItemEdited, setCartItemEdited] = useState(false);
-  const [priceAndQuantityChange, setPriceAndQuantityChange] = useState({
-    price: cartItem.price,
-    quantity: 1,
-  });
-
   useEffect(() => {
     setCartItem(props.cartItemData);
   }, [props.cartItemData]);
 
-  const handlePriceAndQuantityChange = (func) => {
-    if (func === "inc") {
-      setPriceAndQuantityChange((prevPriceChange) => ({
-        ...prevPriceChange,
-        quantity: prevPriceChange.quantity + 1,
-        price: cartItem.price * (prevPriceChange.quantity + 1),
-      }));
-      setCartItemEdited(true);
-    } else if (func === "dec" && priceAndQuantityChange.quantity > 1) {
-      setPriceAndQuantityChange((prevPriceChange) => ({
-        ...prevPriceChange,
-        quantity: prevPriceChange.quantity - 1,
-        price: cartItem.price * (prevPriceChange.quantity - 1),
-      }));
-      setCartItemEdited(true);
-    }
+  const handleRemoveItem = (e) => {
+    props.dataToBeRemoved(e.target.id);
+  };
+  const handleQuantityChange = (func, event) => {
+    props.QuantityChange(func, event.target.value);
   };
 
   return (
@@ -40,21 +23,19 @@ function SingleItemInCart(props) {
             <h4 className="font-medium text-xl mb-4">{cartItem.productName}</h4>
             <div className="border-2 border-black w-fit ">
               <button
-                onClick={() => {
-                  handlePriceAndQuantityChange("dec");
+                value={cartItem.uniqueId}
+                onClick={(e) => {
+                  handleQuantityChange("dec", e);
                 }}
                 className="py-1 px-3 text-black hover:text-white hover:bg-red-300 border-e-2 border-black"
               >
                 -
               </button>
-              <span className="py-1 px-3">
-                {cartItemEdited
-                  ? priceAndQuantityChange.quantity
-                  : cartItem.quantity}
-              </span>
+              <span className="py-1 px-3">{cartItem.quantity}</span>
               <button
-                onClick={() => {
-                  handlePriceAndQuantityChange("inc");
+                value={cartItem.uniqueId}
+                onClick={(e) => {
+                  handleQuantityChange("inc", e);
                 }}
                 className="py-1 px-3 text-black hover:text-white hover:bg-red-300 border-s-2 border-black"
               >
@@ -63,13 +44,15 @@ function SingleItemInCart(props) {
             </div>
           </div>
           <h1 className="font-bold text-3xl mr-[15%]">
-            {cartItemEdited ? priceAndQuantityChange.price : cartItem.price}$
+            {cartItem.productPrice * cartItem.quantity}$
           </h1>
 
           <img
             className="w-[1rem] absolute top-2 right-2"
             src="../../../../public/img/icons/closeIcon.svg"
             alt=""
+            id={cartItem.uniqueId}
+            onClick={handleRemoveItem}
           />
         </div>
       </div>

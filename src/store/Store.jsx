@@ -6,6 +6,7 @@ const initialState = {
   productImage: "i.jpg",
   productName: "name",
   productId: "id",
+  productPrice: 0,
 };
 const cartUpdate = createSlice({
   name: "cartSlice",
@@ -18,10 +19,10 @@ const cartUpdate = createSlice({
       state.productImage = dataReceived.productImage;
       state.productName = dataReceived.productName;
       state.productId = dataReceived.productId;
+      state.productPrice = dataReceived.productPrice;
     },
   },
 });
-
 export const cartSliceActions = cartUpdate.actions;
 const store = configureStore({ reducer: { cartUpdate: cartUpdate.reducer } });
 export default store;

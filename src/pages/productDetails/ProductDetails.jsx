@@ -34,6 +34,7 @@ function SingleProductDisplay() {
         price: priceChange.price,
         productName: productToDisplay.description,
         productId: productToDisplay.id,
+        productPrice: productToDisplay.price,
       })
     );
   };
@@ -62,7 +63,6 @@ function SingleProductDisplay() {
       }));
     }
   };
-
   return (
     <>
       <NavBar />
