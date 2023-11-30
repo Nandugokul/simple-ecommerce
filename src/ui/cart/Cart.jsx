@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SingleItemInCart from "./components/SingleItemInCart";
 import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
 
 function Cart(props) {
   const [itemsInsideCart, setItemsInsideCart] = useState([]);
@@ -21,6 +22,17 @@ function Cart(props) {
       setItemsInsideCart((prevItems) => [...prevItems, updatedCartItem]);
     }
   }, [cartUpdate]);
+
+  const [prevTotalCartValue, setPrevTotalCartValue] = useState(0);
+
+  useEffect(() => {
+    if (totalCartValue > prevTotalCartValue) {
+      toast.success("Item added successfully!");
+    } else if (totalCartValue < prevTotalCartValue) {
+      toast.error("Item removed successfully!");
+    }
+    setPrevTotalCartValue(totalCartValue);
+  }, [totalCartValue, prevTotalCartValue]);
 
   useEffect(() => {
     let totalValue = 0;

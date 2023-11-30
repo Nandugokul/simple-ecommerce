@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Cart from "./cart/Cart";
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 function NavBar() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -15,6 +16,7 @@ function NavBar() {
   };
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="shadow-[0_4px_6px_-6px_rgba(0,0,0,0.3)]">
         <div className="flex items-center justify-between max-w-screen-xl m-auto hover:cursor-pointer py-4 mb-8 ">
           <Link to={"/"}>
