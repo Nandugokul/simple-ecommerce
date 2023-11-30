@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
-import Cart from "./Cart";
+import Cart from "./cart/Cart";
 import { useState } from "react";
 
 function NavBar() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [noOfItemsInCart, setNoOfItemsInCart] = useState("0");
 
   const cartClose = () => {
     setCartOpen(false);
   };
 
+  const getNumberOfItemsInCart = (data) => {
+    setNoOfItemsInCart(data);
+  };
+  console.log(noOfItemsInCart);
   return (
     <>
       <div className="shadow-[0_4px_6px_-6px_rgba(0,0,0,0.3)]">
@@ -23,17 +28,28 @@ function NavBar() {
           <div className="flex space-x-8">
             <Link to={"/productListings/category"}>CATEGORIES</Link>
             <Link to={"/productPage/loadFromHome"}>PRODUCT PAGE</Link>
-            <img
-              onClick={() => {
-                setCartOpen(true);
-              }}
-              src="../../../public/img/icons/icons8-cart.gif"
-              alt="cartIcon"
-              className="w-6 h-6"
-            />
+            <div className="relative">
+              <img
+                onClick={() => {
+                  setCartOpen(true);
+                }}
+                src="../../../public/img/icons/icons8-cart.gif"
+                alt="cartIcon"
+                className="w-6 h-6  "
+              />
+              <div
+                className={`absolute rounded-full bg-red-700 w-[5px] h-[5px] top-0 right-0 ${
+                  noOfItemsInCart > 0 ? "block" : "hidden"
+                }`}
+              ></div>
+            </div>
           </div>
         </div>
-        <Cart cartOpen={cartOpen} cartClose={cartClose} />
+        <Cart
+          cartOpen={cartOpen}
+          cartClose={cartClose}
+          numberOfItemsInside={getNumberOfItemsInCart}
+        />
       </div>
     </>
   );

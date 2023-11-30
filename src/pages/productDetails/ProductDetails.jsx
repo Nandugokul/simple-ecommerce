@@ -5,12 +5,15 @@ import { items } from "../../data/AllData.js";
 import ProductCarousel from "../landingPage/components/ProductCarousel.jsx";
 import Footer from "../../ui/Footer.jsx";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartSliceActions } from "../../store/Store.jsx";
 
 function SingleProductDisplay() {
+  const cartDispatch = useDispatch();
   const { productId } = useParams();
   let productToDisplay;
   if (productId === "loadFromHome") {
-    productToDisplay = items[5];
+    productToDisplay = items[8];
   } else {
     productToDisplay = items.find((obj) => obj.id === Number(productId));
   }
@@ -22,6 +25,18 @@ function SingleProductDisplay() {
     price: productToDisplay.price,
     quantity: 1,
   });
+
+  const handleAddToCart = () => {
+    cartDispatch(
+      cartSliceActions.getItemToCart({
+        productImage: productToDisplay.img,
+        quantity: priceChange.quantity,
+        price: priceChange.price,
+        productName: productToDisplay.description,
+        productId: productToDisplay.id,
+      })
+    );
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -114,7 +129,10 @@ function SingleProductDisplay() {
               </span>
             </div>
             <div className="grid grid-cols-2 ">
-              <button className="border-2 border-solid border-black hover:bg-black hover:text-white font-medium  py-4 mr-2">
+              <button
+                onClick={handleAddToCart}
+                className="border-2 border-solid border-black hover:bg-black hover:text-white font-medium  py-4 mr-2"
+              >
                 ADD TO CART
               </button>
               <button className="border-2 border-solid border-red-600 bg-red-600 text-white hover:text-red-600 hover:bg-transparent font-medium  py-4 ml-2">

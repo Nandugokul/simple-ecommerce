@@ -5,7 +5,6 @@ import HarmoniousLiving from "./components/HarmoniousLiving";
 import ProductCarousel from "./components/ProductCarousel";
 import ComfortableAndElegent from "./components/ComfortableAndElegent";
 import Footer from "../../ui/Footer";
-import Cart from "../../ui/Cart";
 
 function LandingPage() {
   return (
@@ -17,7 +16,6 @@ function LandingPage() {
       <ProductCarousel />
       <ComfortableAndElegent />
       <Footer />
-      <Cart />
     </>
   );
 }
