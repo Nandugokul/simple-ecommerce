@@ -13,7 +13,6 @@ function NavBar() {
   const getNumberOfItemsInCart = (data) => {
     setNoOfItemsInCart(data);
   };
-  console.log(noOfItemsInCart);
   return (
     <>
       <div className="shadow-[0_4px_6px_-6px_rgba(0,0,0,0.3)]">
