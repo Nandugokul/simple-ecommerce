@@ -78,7 +78,7 @@ export const items = [
     category: "kitchen",
     img: Img2,
     description: "Pop-Up Toaster",
-    price: 45,
+    price: 450,
     otherImgs: [Toster1, Toster2],
     specs:
       " The rounded square design of the toaster allows it to fit neatly against a wall, or inside a corner. Excellent at defrosting, and with the perfect breadtoheater distance to give crunchy toast with a soft, spongey middle.",

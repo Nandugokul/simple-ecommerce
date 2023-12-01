@@ -1,15 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SingleItemInCart from "./components/SingleItemInCart";
 import { v4 as uuidv4 } from "uuid";
+import { cartSliceActions } from "../../store/Store";
 
 function Cart(props) {
   const [itemsInsideCart, setItemsInsideCart] = useState([]);
   const [totalCartValue, setTotalCartValue] = useState(0);
   const cartUpdate = useSelector((state) => state.cartUpdate);
   const [cartOpen, setCartOpen] = useState(props.cartOpen);
+  const [cartItemFromLocalStorage, setCartItemFromLocalStorage] = useState([]);
+  const cartDispatch = useDispatch();
 
   useEffect(() => {
     setCartOpen(props.cartOpen);
@@ -29,6 +32,24 @@ function Cart(props) {
     });
     setTotalCartValue(totalValue);
     props.numberOfItemsInside(itemsInsideCart.length);
+
+    if (itemsInsideCart.length == 0) {
+      cartDispatch(
+        cartSliceActions.getItemToCart({
+          productImage: "img",
+          quantity: 0,
+          price: 0,
+          productName: "name",
+          productId: "id",
+          productPrice: 0,
+        })
+      );
+    }
+    localStorage.setItem("cartItems", JSON.stringify(itemsInsideCart));
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItemFromLocalStorage(JSON.parse(storedCartItems));
+    }
   }, [itemsInsideCart]);
 
   const handleItemRemoval = (uniqueId) => {
@@ -64,6 +85,7 @@ function Cart(props) {
       setItemsInsideCart(newArray);
     }
   };
+
   return (
     <>
       <section className={`${cartOpen ? "block" : "hidden"} `}>
@@ -115,7 +137,7 @@ function Cart(props) {
           </div>
           <div className={`${itemsInsideCart.length > 0 ? "block" : "hidden"}`}>
             <div className="h-[70vh] overflow-y-scroll p-4">
-              {itemsInsideCart.map((item) => (
+              {cartItemFromLocalStorage.map((item) => (
                 <SingleItemInCart
                   key={item.uniqueId}
                   cartItemData={item}
