@@ -129,7 +129,9 @@ function SingleProductDisplay() {
             </div>
             <div className="grid grid-cols-2 ">
               <button
-                onClick={handleAddToCart}
+                onClick={() => {
+                  handleAddToCart();
+                }}
                 className="border-2 border-solid border-black hover:bg-black hover:text-white font-medium  py-4 mr-2"
               >
                 ADD TO CART

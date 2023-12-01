@@ -1,90 +1,24 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import SingleItemInCart from "./components/SingleItemInCart";
-import { v4 as uuidv4 } from "uuid";
-import { cartSliceActions } from "../../store/Store";
 
 function Cart(props) {
-  const [itemsInsideCart, setItemsInsideCart] = useState([]);
-  const [totalCartValue, setTotalCartValue] = useState(0);
-  const cartUpdate = useSelector((state) => state.cartUpdate);
+  const cartUpdate = useSelector((state) => {
+    return state.cartUpdate;
+  });
   const [cartOpen, setCartOpen] = useState(props.cartOpen);
-  const [cartItemFromLocalStorage, setCartItemFromLocalStorage] = useState([]);
-  const cartDispatch = useDispatch();
+  const [numberOfItemsInCart, setNumberOfItemsInCart] = useState(0);
 
   useEffect(() => {
     setCartOpen(props.cartOpen);
   }, [props.cartOpen]);
 
   useEffect(() => {
-    if (cartUpdate.quantity > 0) {
-      const updatedCartItem = { ...cartUpdate, uniqueId: uuidv4() };
-      setItemsInsideCart((prevItems) => [...prevItems, updatedCartItem]);
-    }
+    setNumberOfItemsInCart(cartUpdate.cartItems.length);
+    props.numberOfItemsInside(cartUpdate.cartItems.length);
   }, [cartUpdate]);
-
-  useEffect(() => {
-    let totalValue = 0;
-    itemsInsideCart.forEach((item) => {
-      totalValue = totalValue + item.price;
-    });
-    setTotalCartValue(totalValue);
-    props.numberOfItemsInside(itemsInsideCart.length);
-
-    if (itemsInsideCart.length == 0) {
-      cartDispatch(
-        cartSliceActions.getItemToCart({
-          productImage: "img",
-          quantity: 0,
-          price: 0,
-          productName: "name",
-          productId: "id",
-          productPrice: 0,
-        })
-      );
-    }
-    localStorage.setItem("cartItems", JSON.stringify(itemsInsideCart));
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItemFromLocalStorage(JSON.parse(storedCartItems));
-    }
-  }, [itemsInsideCart]);
-
-  const handleItemRemoval = (uniqueId) => {
-    let FilteredArray = itemsInsideCart.filter(
-      (item) => item.uniqueId !== uniqueId
-    );
-    setItemsInsideCart(FilteredArray);
-  };
-
-  const handleQuantityChange = (func, uniqueId) => {
-    if (func === "inc") {
-      let newArray = itemsInsideCart.map((item) =>
-        item.uniqueId === uniqueId
-          ? {
-              ...item,
-              quantity: item.quantity + 1,
-              price: item.price + item.productPrice,
-            }
-          : item
-      );
-      setItemsInsideCart(newArray);
-    }
-    if (func === "dec") {
-      let newArray = itemsInsideCart.map((item) =>
-        item.uniqueId === uniqueId && item.quantity > 1
-          ? {
-              ...item,
-              quantity: item.quantity - 1,
-              price: item.price - item.productPrice,
-            }
-          : item
-      );
-      setItemsInsideCart(newArray);
-    }
-  };
 
   return (
     <>
@@ -101,7 +35,7 @@ function Cart(props) {
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-2xl">
               Your shoping cart{"("}
-              {itemsInsideCart.length}
+              {numberOfItemsInCart}
               {")"}
             </h1>
             <img
@@ -116,7 +50,7 @@ function Cart(props) {
           </div>
           <div
             className={`w-full h-[90vh] flex flex-col justify-center items-center ${
-              itemsInsideCart.length > 0 ? "hidden" : "block"
+              numberOfItemsInCart === 0 ? "block" : "hidden"
             }`}
           >
             <img
@@ -135,21 +69,18 @@ function Cart(props) {
               Keep shoping
             </button>
           </div>
-          <div className={`${itemsInsideCart.length > 0 ? "block" : "hidden"}`}>
+          <div className={`${numberOfItemsInCart === 0 ? "hidden" : "block"}`}>
             <div className="h-[70vh] overflow-y-scroll p-4">
-              {cartItemFromLocalStorage.map((item) => (
-                <SingleItemInCart
-                  key={item.uniqueId}
-                  cartItemData={item}
-                  dataToBeRemoved={handleItemRemoval}
-                  QuantityChange={handleQuantityChange}
-                />
+              {cartUpdate.cartItems.map((item) => (
+                <SingleItemInCart key={item.uniqueId} cartItemData={item} />
               ))}
             </div>
             <div className="border-dashed border-t-2 border-black flex justify-between p-8">
               <div>
                 <h4 className="text-2xl font-bold mt-2 ">Subtotal</h4>
-                <h4 className="text-3xl font-bold mt-1">{totalCartValue}$</h4>
+                <h4 className="text-3xl font-bold mt-1">
+                  {cartUpdate.totalCartValue}$
+                </h4>
               </div>
               <button className="border-2 border-black py-3 p-10 h-fit text-xl font-medium hover:text-white hover:bg-black">
                 Check out

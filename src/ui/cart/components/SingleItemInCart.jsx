@@ -1,17 +1,21 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartSliceActions } from "../../../store/Store";
 
 function SingleItemInCart(props) {
+  const cartDispatch = useDispatch();
   const [cartItem, setCartItem] = useState(props.cartItemData);
+
   useEffect(() => {
     setCartItem(props.cartItemData);
   }, [props.cartItemData]);
 
   const handleRemoveItem = (e) => {
-    props.dataToBeRemoved(e.target.id);
+    cartDispatch(cartSliceActions.removeItem(e.target.id));
   };
-  const handleQuantityChange = (func, event) => {
-    props.QuantityChange(func, event.target.value);
+  const handleQuantityChange = (func, id) => {
+    cartDispatch(cartSliceActions.changeQuantity({ func: func, uniqueId: id }));
   };
 
   return (
@@ -25,7 +29,7 @@ function SingleItemInCart(props) {
               <button
                 value={cartItem.uniqueId}
                 onClick={(e) => {
-                  handleQuantityChange("dec", e);
+                  handleQuantityChange("dec", e.target.value);
                 }}
                 className="py-1 px-3 text-black hover:text-white hover:bg-red-300 border-e-2 border-black"
               >
@@ -35,7 +39,7 @@ function SingleItemInCart(props) {
               <button
                 value={cartItem.uniqueId}
                 onClick={(e) => {
-                  handleQuantityChange("inc", e);
+                  handleQuantityChange("inc", e.target.value);
                 }}
                 className="py-1 px-3 text-black hover:text-white hover:bg-red-300 border-s-2 border-black"
               >
