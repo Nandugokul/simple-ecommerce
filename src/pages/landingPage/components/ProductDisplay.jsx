@@ -5,7 +5,7 @@ function ProductDisplay() {
   const limitedItems = items.slice(0, 8);
   return (
     <>
-      <div className="max-w-screen-xl m-auto mt-28">
+      <section className="max-w-screen-xl m-auto mt-28 px-20">
         <h4 className="text-2xl font-medium mb-10">Products we are proud of</h4>
         <div className="grid grid-cols-4 gap-4 ">
           {limitedItems.map((item) => (
@@ -18,7 +18,7 @@ function ProductDisplay() {
             />
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 }

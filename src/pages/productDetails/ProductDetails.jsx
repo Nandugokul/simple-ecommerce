@@ -66,7 +66,7 @@ function SingleProductDisplay() {
   return (
     <>
       <NavBar />
-      <section className="max-w-screen-xl m-auto ">
+      <section className="max-w-screen-xl m-auto px-20">
         <div className="grid lg:grid-cols-2 ">
           <div className="grid grid-rows-[40vh_1fr]">
             <img

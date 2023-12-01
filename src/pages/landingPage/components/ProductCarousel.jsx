@@ -13,7 +13,7 @@ function ProductCarousel() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
   };
@@ -28,7 +28,7 @@ function ProductCarousel() {
 
   return (
     <>
-      <section className="max-w-screen-xl m-auto">
+      <section className="max-w-screen-xl m-auto px-20">
         <div className="flex items-center justify-between mb-8">
           <h4 className="font-semibold text-3xl">Trending Now</h4>
           <div>

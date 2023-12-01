@@ -1,7 +1,7 @@
 function ComfortableAndElegent() {
   return (
     <>
-      <section className="max-w-screen-xl m-auto mt-28 flex mb-28">
+      <section className="max-w-screen-xl h-[40vh] m-auto mt-28 flex mb-28 px-20">
         <div className="w-1/2 h-[40vh]">
           <img
             src="../../../../public/img/banner/banner2.jpg"

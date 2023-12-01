@@ -8,12 +8,12 @@ function Footer() {
           <h1 className="text-4xl text-white font-bold  mb-6">Newsletter</h1>
           <div>
             <input
-              className="rounded-sm px-3 py-2 focus:outline-none"
+              className="rounded-md px-3 h-10 focus:outline-none "
               type="text"
               placeholder="Mail ID"
               id="subscribeInputBox"
             />
-            <button className="w-fit px-2 py-1 ml-4 bg-white text-black font-bold  hover:text-white hover:bg-black border-solid border-2 border-white">
+            <button className="w-fit px-2 rounded-md h-10 ml-4 bg-white text-black font-bold  hover:text-white hover:bg-black border-solid border-2 border-white">
               Subscribe
             </button>
           </div>

@@ -2,13 +2,18 @@ import NavBar from "../../ui/NavBar";
 import Footer from "../../ui/Footer.jsx";
 import { items } from "../../data/AllData";
 import SingelProduct from "../../ui/SingleProduct";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 function ProductListings() {
   const itemCategoryList = items;
   const [category, setCategory] = useState(itemCategoryList);
   const [categoryName, setCategoryName] = useState("All");
+  const categoryToDisplay = useParams();
+
+  useEffect(() => {
+    changeCategory(categoryToDisplay.category);
+  }, []);
 
   const changeCategory = (category) => {
     setCategoryName(category);
@@ -40,9 +45,9 @@ function ProductListings() {
   return (
     <>
       <NavBar />
-      <section className="max-w-screen-xl m-auto relative">
+      <section className="max-w-screen-xl m-auto relative px-20">
         <Link to={"/"}>
-          <button className="font-medium absolute  top-0 left-0">
+          <button className="font-medium absolute  top-0 left-20">
             {"<"} Home
           </button>
         </Link>
@@ -108,7 +113,7 @@ function ProductListings() {
           </div>
         </div>
       </section>
-      <section className="max-w-screen-xl m-auto grid grid-cols-4 gap-4">
+      <section className="max-w-screen-xl m-auto grid grid-cols-4 gap-4 px-20">
         {category.map((item) => (
           <SingelProduct
             key={item.id}

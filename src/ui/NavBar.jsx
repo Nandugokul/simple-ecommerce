@@ -18,7 +18,7 @@ function NavBar() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="shadow-[0_4px_6px_-6px_rgba(0,0,0,0.3)]">
-        <div className="flex items-center justify-between max-w-screen-xl m-auto hover:cursor-pointer py-4 mb-8 ">
+        <div className="flex items-center justify-between max-w-screen-xl m-auto hover:cursor-pointer py-4 mb-8 px-20">
           <Link to={"/"}>
             <img
               src="../../../public/img/newlogo2.png"
