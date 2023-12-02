@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function HarmoniousLiving() {
   return (
-    <section className="block lg:flex max-w-screen-xl m-auto my-28 h:auto lh:h-[40vh] px-6 lg:px-20">
+    <section className="block sm:flex max-w-screen-xl m-auto my-28 h:auto lh:h-[40vh] px-6 lg:px-20">
       <div className="w-full lg:w-1/2 bg-[#e9e9e9] flex items-start justify-center flex-col p-10 lg:p-20">
         <h4 className="font-bold text-4xl mb-6 ">Creative harmonious living</h4>
         <p>
