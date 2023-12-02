@@ -7,7 +7,7 @@ function ComfortableAndElegent() {
         <div className="w-full lg:w-1/2 h-[30vh] lg:h-full">
           <img
             src="../../../../public/img/banner/banner2.jpg"
-            alt=""
+            alt="banner"
             className="object-cover h-full w-full"
           />
         </div>

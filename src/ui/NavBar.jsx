@@ -92,7 +92,7 @@ function NavBar() {
             </div>
             <img
               src="../../public/img/icons/circleMenu2.svg"
-              alt=""
+              alt="burger menu"
               className="w-5"
               onClick={() => {
                 setHamburgerOpen(true);
@@ -164,7 +164,7 @@ function NavBar() {
         </div>
         <img
           src="../../public/img/icons/closeIcon.svg"
-          alt=""
+          alt="close icon"
           className="w-6 absolute top-[-0.5rem] right-[0.5rem]"
           onClick={() => {
             setHamburgerOpen(false);

@@ -56,7 +56,7 @@ function Cart(props) {
             <img
               className="w-1/3"
               src="../../public/img/cart/empty-cart.png"
-              alt=""
+              alt="cart icon"
             />
             <h4 className="text-xl font-medium my-8">Your cart is empty</h4>
             <button

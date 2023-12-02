@@ -11,7 +11,7 @@ function HeroSection() {
           <div className="imgWrapper w-full relative h-full">
             <img
               src="../../../public/img/header/home-img-1.jpg"
-              alt=""
+              alt="furniture image"
               className="object-cover w-full h-full"
             />
             <div className="maskingDiv absolute top-0 left-0 w-full h-full bg-black/30 hover:bg-black/40 transition duration-300 flex flex-col justify-end ">
@@ -28,7 +28,7 @@ function HeroSection() {
           <div className="imgWrapper relative h-full">
             <img
               src="../../../public/img/header/home-img-2.jpg"
-              alt=""
+              alt="skin care product"
               className="object-cover w-full h-full"
             />
             <div className="maskingDiv absolute top-0 left-0 w-full h-full bg-black/30 hover:bg-black/40 transition duration-300 flex flex-col justify-end ">
@@ -45,7 +45,7 @@ function HeroSection() {
           <div className="imgWrapper relative w-full h-full">
             <img
               src="../../../public/img/header/home-img-3.jpg"
-              alt=""
+              alt="kitchen"
               className="object-cover w-full h-full"
             />
             <div className="maskingDiv absolute top-0 left-0 w-full h-full bg-black/30 hover:bg-black/40 transition duration-300 flex flex-col justify-end ">
@@ -62,7 +62,7 @@ function HeroSection() {
           <div className="imgWrapper relative w-full h-full">
             <img
               src="../../../public/img/header/home-img-4.jpg"
-              alt=""
+              alt="electronics"
               className="object-cover w-full   h-full"
             />
             <div className="maskingDiv absolute top-0 left-0 w-full h-full bg-black/30 hover:bg-black/40 transition duration-300 flex flex-col justify-end ">

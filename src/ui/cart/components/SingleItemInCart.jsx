@@ -24,7 +24,7 @@ function SingleItemInCart(props) {
         <img
           className="h-auto w-1/2 md:w-auto md:h-full p-4 m-auto"
           src={cartItem.productImage}
-          alt=""
+          alt="product image"
         />
         <div className=" flex-grow w-full p-4 items-center relative bg-[#e5e5e5] flex justify-between">
           <div>
@@ -58,7 +58,7 @@ function SingleItemInCart(props) {
           <img
             className="w-[1rem] absolute top-2 right-2"
             src="../../../../public/img/icons/closeIcon.svg"
-            alt=""
+            alt="close icon"
             id={cartItem.uniqueId}
             onClick={handleRemoveItem}
           />

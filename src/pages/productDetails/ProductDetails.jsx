@@ -71,25 +71,25 @@ function SingleProductDisplay() {
           <div className="grid grid-rows-[40vh_1fr] lg:grid-rows-[50vh_1fr] mb-10 lg:mb-0">
             <img
               src={imageChangeOnHover}
-              alt=""
+              alt="small images"
               className="object-contain h-full w-3/4 mx-auto"
             />
             <div className="grid grid-cols-3 gap-4 mt-4">
               <img
                 src={productToDisplay.img}
-                alt=""
+                alt="small images"
                 className="object-contain w-full h-[10vh] m-auto hover:blur-sm"
                 onMouseOver={handleImageChangeOnMouseOver}
               />
               <img
                 src={productToDisplay.otherImgs[0]}
-                alt=""
+                alt="small images"
                 className="object-contain w-full h-[10vh] m-auto hover:blur-sm"
                 onMouseOver={handleImageChangeOnMouseOver}
               />
               <img
                 src={productToDisplay.otherImgs[1]}
-                alt=""
+                alt="small images"
                 className="object-contain w-full h-[10vh] m-auto hover:blur-sm"
                 onMouseOver={handleImageChangeOnMouseOver}
               />
