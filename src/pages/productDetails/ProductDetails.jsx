@@ -136,7 +136,12 @@ function SingleProductDisplay() {
               >
                 ADD TO CART
               </button>
-              <button className="border-2 mt-2 sm:mt-0 border-solid border-red-600 bg-red-600 text-white hover:text-red-600 hover:bg-transparent font-medium  py-4 sm:ml-2">
+              <button
+                onClick={() => {
+                  handleAddToCart();
+                }}
+                className="border-2 mt-2 sm:mt-0 border-solid border-red-600 bg-red-600 text-white hover:text-red-600 hover:bg-transparent font-medium  py-4 sm:ml-2"
+              >
                 BUY NOW
               </button>
             </div>

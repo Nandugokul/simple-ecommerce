@@ -38,14 +38,28 @@ function NavBar() {
             />
           </Link>
           <div className="space-x-8 hidden sm:flex">
-            <Link to={"/productListings/All"}>CATEGORIES</Link>
-            <Link to={"/productPage/loadFromHome"}>PRODUCT PAGE</Link>
+            <Link
+              to={"/productListings/All"}
+              className="hover:underline underline-offset-4"
+            >
+              CATEGORIES
+            </Link>
+            <Link
+              to={"/productPage/loadFromHome"}
+              className="hover:underline underline-offset-4"
+            >
+              PRODUCT OF THE DAY
+            </Link>
             <div className="relative">
               <img
                 onClick={() => {
                   setCartOpen(true);
                 }}
-                src="../../../public/img/icons/icons8-cart.gif"
+                src={`${
+                  noOfItemsInCart > 0
+                    ? "../../../public/img/icons/icons8-cart.gif"
+                    : "../../public/img/icons/cartIconStatic.png"
+                }`}
                 alt="cartIcon"
                 className="w-6 h-6 cursor-pointer"
               />
@@ -62,7 +76,11 @@ function NavBar() {
                 onClick={() => {
                   setCartOpen(true);
                 }}
-                src="../../../public/img/icons/icons8-cart.gif"
+                src={`${
+                  noOfItemsInCart > 0
+                    ? "../../../public/img/icons/icons8-cart.gif"
+                    : "../../public/img/icons/cartIconStatic.png"
+                }`}
                 alt="cartIcon"
                 className="w-6 h-6 cursor-pointer"
               />

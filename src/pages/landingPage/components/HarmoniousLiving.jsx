@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function HarmoniousLiving() {
   return (
     <section className="block lg:flex max-w-screen-xl m-auto my-28 h:auto lh:h-[40vh] px-6 lg:px-20">
@@ -7,9 +9,11 @@ function HarmoniousLiving() {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed nihil
           libero repudiandae .
         </p>
-        <button className="p-3 text-white bg-black mt-6 font-bold hover:text-black hover:bg-white border-2 border-solid border-black">
-          SHOP NOW
-        </button>
+        <Link to={"/productListings/All"}>
+          <button className="p-3 text-white bg-black mt-6 font-bold hover:text-black hover:bg-white border-2 border-solid border-black">
+            SHOP NOW
+          </button>
+        </Link>
       </div>
       <div className="w-full lg:w-1/2">
         <img

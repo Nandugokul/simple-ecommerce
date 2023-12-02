@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ComfortableAndElegent() {
   return (
     <>
@@ -17,9 +19,11 @@ function ComfortableAndElegent() {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Aspernatur, rem nemo. Natus perferendis mollitia non.
           </p>
-          <button className="w-fit px-4 py-3 bg-black text-white font-bold mt-6 hover:text-black hover:bg-white border-solid border-2 border-black">
-            SHOP NOW
-          </button>
+          <Link to={"/productListings/All"}>
+            <button className="w-fit px-4 py-3 bg-black text-white font-bold mt-6 hover:text-black hover:bg-white border-solid border-2 border-black">
+              SHOP NOW
+            </button>
+          </Link>
         </div>
       </section>
     </>

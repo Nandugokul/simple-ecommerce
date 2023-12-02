@@ -13,6 +13,7 @@ function ProductListings() {
 
   useEffect(() => {
     changeCategory(categoryToDisplay.category);
+    window.scrollTo(0, 0);
   }, []);
 
   const changeCategory = (category) => {
