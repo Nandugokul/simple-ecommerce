@@ -20,12 +20,16 @@ function SingleItemInCart(props) {
 
   return (
     <>
-      <div className="flex w-full border-black border-2 mt-8  justify-between h-[15vh]">
-        <img className="h-full p-4" src={cartItem.productImage} alt="" />
-        <div className=" flex-grow p-4 items-center relative bg-[#e5e5e5] flex justify-between">
+      <div className="grid grid-cols-1 sm:flex w-full border-black border-2 mt-8 justify-between h-fit md:h-[20vh]">
+        <img
+          className="h-auto w-1/2 md:w-auto md:h-full p-4 m-auto"
+          src={cartItem.productImage}
+          alt=""
+        />
+        <div className=" flex-grow w-full p-4 items-center relative bg-[#e5e5e5] flex justify-between">
           <div>
             <h4 className="font-medium text-xl mb-4">{cartItem.productName}</h4>
-            <div className="border-2 border-black w-fit ">
+            <div className="border-2 border-black w-fit">
               <button
                 value={cartItem.uniqueId}
                 onClick={(e) => {

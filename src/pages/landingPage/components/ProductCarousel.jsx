@@ -16,6 +16,29 @@ function ProductCarousel() {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const handlePrevClick = () => {
@@ -28,7 +51,7 @@ function ProductCarousel() {
 
   return (
     <>
-      <section className="max-w-screen-xl m-auto px-20">
+      <section className="max-w-screen-xl m-auto px-6 lg:px-20">
         <div className="flex items-center justify-between mb-8">
           <h4 className="font-semibold text-3xl">Trending Now</h4>
           <div>
@@ -53,7 +76,7 @@ function ProductCarousel() {
                 <div key={item.id}>
                   <SingleProduct
                     id={item.id}
-                    styles={"m-2"}
+                    styles={"m-2 "}
                     imgSrc={item.img}
                     itemName={item.description}
                     price={item.price}

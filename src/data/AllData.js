@@ -103,7 +103,7 @@ export const items = [
     id: 4,
     category: "furniture",
     img: Img4,
-    description: "Pulp Unit - 5 Compartments",
+    description: "Pulp Unit - 5-C",
     price: 254,
     otherImgs: [PulpUnit1, PulpUnit2],
     specs:
@@ -155,7 +155,7 @@ export const items = [
     id: 8,
     category: "furniture",
     img: Img8,
-    description: "Gejst Shelf A Black Ash/Black",
+    description: "Gejst Shelf A Black",
     price: 115,
     otherImgs: [Shelf1, Shelf2],
     specs:

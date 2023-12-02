@@ -66,15 +66,15 @@ function SingleProductDisplay() {
   return (
     <>
       <NavBar />
-      <section className="max-w-screen-xl m-auto px-20">
+      <section className="max-w-screen-xl m-auto px-6 lg:px-20">
         <div className="grid lg:grid-cols-2 ">
-          <div className="grid grid-rows-[40vh_1fr]">
+          <div className="grid grid-rows-[40vh_1fr] lg:grid-rows-[50vh_1fr] mb-10 lg:mb-0">
             <img
               src={imageChangeOnHover}
               alt=""
               className="object-contain h-full w-3/4 mx-auto"
             />
-            <div className="grid grid-cols-3 gap-4 mt-4 ">
+            <div className="grid grid-cols-3 gap-4 mt-4">
               <img
                 src={productToDisplay.img}
                 alt=""
@@ -95,14 +95,14 @@ function SingleProductDisplay() {
               />
             </div>
           </div>
-          <div className="bg-[#e5e5e5]  px-16 py-28">
+          <div className="bg-[#e5e5e5] px-6 py-14 lg:py-16">
             <h2 className="font-bold text-4xl mb-6">
               {productToDisplay.description}
             </h2>
             <p>{productToDisplay.specs}</p>
             <div className="grid md:grid-cols-3 my-12">
               <h4 className="text-3xl font-semibold text-center ">Quantity</h4>
-              <div className="flex justify-center">
+              <div className="flex justify-center my-6 md:my-0">
                 <button
                   onClick={() => {
                     handlePriceAndQuantityChange("dec");
@@ -127,22 +127,22 @@ function SingleProductDisplay() {
                 {priceChange.price}$
               </span>
             </div>
-            <div className="grid grid-cols-2 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 ">
               <button
                 onClick={() => {
                   handleAddToCart();
                 }}
-                className="border-2 border-solid border-black hover:bg-black hover:text-white font-medium  py-4 mr-2"
+                className="border-2 mb-2 sm:mb-0 border-solid border-black hover:bg-black hover:text-white font-medium  py-4 sm:mr-2"
               >
                 ADD TO CART
               </button>
-              <button className="border-2 border-solid border-red-600 bg-red-600 text-white hover:text-red-600 hover:bg-transparent font-medium  py-4 ml-2">
+              <button className="border-2 mt-2 sm:mt-0 border-solid border-red-600 bg-red-600 text-white hover:text-red-600 hover:bg-transparent font-medium  py-4 sm:ml-2">
                 BUY NOW
               </button>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-16 my-28">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-16 my-20">
           <div className="bg-[#e5e5e5] py-6 px-8">
             <h4 className="font-bold text-xl">Texture:</h4>
             <p className="mt-2">{productToDisplay.texture}</p>

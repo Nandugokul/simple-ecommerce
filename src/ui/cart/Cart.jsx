@@ -31,7 +31,7 @@ function Cart(props) {
           className="fixed right-0 top-0 h-[100vh] w-full bg-black/50 z-10"
         ></div>
 
-        <div className="fixed right-0 top-0 h-[100vh] w-[50vw] bg-white p-8 z-20">
+        <div className="fixed right-0 top-0 h-[100vh] w-full md:w-[70vw] lg:w-[50vw] bg-white p-8 z-20">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-2xl">
               Your shoping cart{"("}
@@ -77,12 +77,12 @@ function Cart(props) {
             </div>
             <div className="border-dashed border-t-2 border-black flex justify-between p-8">
               <div>
-                <h4 className="text-2xl font-bold mt-2 ">Subtotal</h4>
+                <h4 className="text-2xl font-bold  ">Subtotal</h4>
                 <h4 className="text-3xl font-bold mt-1">
                   {cartUpdate.totalCartValue}$
                 </h4>
               </div>
-              <button className="border-2 border-black py-3 p-10 h-fit text-xl font-medium hover:text-white hover:bg-black">
+              <button className="border-2 border-black py-1 px-2 sm:py-3 sm:px-10 h-fit text-xl font-medium hover:text-white hover:bg-black">
                 Check out
               </button>
             </div>

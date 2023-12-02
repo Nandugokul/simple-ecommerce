@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
-    <div className="h-[60vh] w-full max-w-screen-xl m-auto flex justify-center px-20">
-      <div className="flex w-3/4">
-        <Link to={"/productListings/furnitures"} className="grow">
-          <div className="imgWrapper h-full relative mr-1">
+    <div className="sm:h-auto md:h-auto lg:h-[60vh] w-full max-w-screen-xl m-auto sm:block md:block lg:flex justify-center px-20">
+      <div className="sm:flex sm:h-[30vh] md:h-[30vh] lg:h-auto md:flex lg:flex sm:w-full md:w-full lg:w-3/4">
+        <Link
+          to={"/productListings/furnitures"}
+          className="sm:w-full md:w-full lg:grow"
+        >
+          <div className="imgWrapper sm:h-auto md:h-auto lg:h-full relative mr-1">
             <img
               src="../../../public/img/header/home-img-1.jpg"
               alt=""
-              className=" w-full h-full object-center object-cover mr-1"
+              className="sm:w-full md:w-full sm:h-[30vh] md:h-[30vh] lg:w-full lg:h-full object-center object-cover mr-1"
             />
             <div className="maskingDiv absolute top-0 left-0 w-full h-full bg-black/30 hover:bg-black/40 transition duration-300 flex flex-col justify-end ">
               <p className="ml-8 mb-8 text-white text-3xl font-bold">
