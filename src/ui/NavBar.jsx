@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import Cart from "./cart/Cart";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
+import logo from "../../public/img/newlogo2.png";
+import cartIconGif from "../../public/img/icons/icons8-cart.gif";
+import cartIconStatic from "../../public/img/icons/cartIconStatic.png";
+import burgerMenu from "../../public/img/icons/circleMenu2.svg";
+import closeIcon from "../../public/img/icons/closeIcon.svg";
 
 function NavBar() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -17,7 +22,6 @@ function NavBar() {
     setNoOfItemsInCart(data);
   };
   const handleScroll = () => {
-    console.log(window.scrollY);
     window.scrollY > 10 ? setNavBarShrink(true) : setNavBarShrink(false);
   };
   window.addEventListener("scroll", handleScroll);
@@ -31,11 +35,7 @@ function NavBar() {
           }`}
         >
           <Link to={"/"}>
-            <img
-              src="../../../public/img/newlogo2.png"
-              alt="logo"
-              className="w-20 cursor-pointer"
-            />
+            <img src={logo} alt="logo" className="w-20 cursor-pointer" />
           </Link>
           <div className="space-x-8 hidden sm:flex">
             <Link
@@ -55,11 +55,7 @@ function NavBar() {
                 onClick={() => {
                   setCartOpen(true);
                 }}
-                src={`${
-                  noOfItemsInCart > 0
-                    ? "../../../public/img/icons/icons8-cart.gif"
-                    : "../../public/img/icons/cartIconStatic.png"
-                }`}
+                src={`${noOfItemsInCart > 0 ? cartIconGif : cartIconStatic}`}
                 alt="cartIcon"
                 className="w-6 h-6 cursor-pointer"
               />
@@ -76,11 +72,7 @@ function NavBar() {
                 onClick={() => {
                   setCartOpen(true);
                 }}
-                src={`${
-                  noOfItemsInCart > 0
-                    ? "../../../public/img/icons/icons8-cart.gif"
-                    : "../../public/img/icons/cartIconStatic.png"
-                }`}
+                src={`${noOfItemsInCart > 0 ? cartIconGif : cartIconStatic}`}
                 alt="cartIcon"
                 className="w-6 h-6 cursor-pointer"
               />
@@ -91,7 +83,7 @@ function NavBar() {
               ></div>
             </div>
             <img
-              src="../../public/img/icons/circleMenu2.svg"
+              src={burgerMenu}
               alt="burger menu"
               className="w-5"
               onClick={() => {
@@ -120,9 +112,9 @@ function NavBar() {
             to={"/"}
           >
             <img
-              src="../../../public/img/newlogo2.png"
+              src={logo}
               alt="logo"
-              className="w-20 cursor-pointer ml-4"
+              className="w-20 cursor-pointer ml-6 mb-6"
             />
           </Link>
         </div>
@@ -163,7 +155,7 @@ function NavBar() {
           CART
         </div>
         <img
-          src="../../public/img/icons/closeIcon.svg"
+          src={closeIcon}
           alt="close icon"
           className="w-6 absolute top-[-0.5rem] right-[0.5rem]"
           onClick={() => {

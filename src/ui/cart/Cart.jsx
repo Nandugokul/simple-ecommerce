@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SingleItemInCart from "./components/SingleItemInCart";
+import closeIcon from "../../../public/img/icons/closeIcon.svg";
+import cartEmptyImage from "../../../public/img/cart/empty-cart.png";
 
 function Cart(props) {
   const cartUpdate = useSelector((state) => {
@@ -44,7 +46,7 @@ function Cart(props) {
                 props.cartClose(false);
               }}
               className="w-[1.5rem]"
-              src="../../public/img/icons/closeIcon.svg"
+              src={closeIcon}
               alt="close Icon"
             />
           </div>
@@ -53,11 +55,7 @@ function Cart(props) {
               numberOfItemsInCart === 0 ? "block" : "hidden"
             }`}
           >
-            <img
-              className="w-1/3"
-              src="../../public/img/cart/empty-cart.png"
-              alt="cart icon"
-            />
+            <img className="w-1/3" src={cartEmptyImage} alt="cart icon" />
             <h4 className="text-xl font-medium my-8">Your cart is empty</h4>
             <button
               onClick={() => {

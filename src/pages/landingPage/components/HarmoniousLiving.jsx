@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import bannerImg1 from "../../../../public/img/banner/banner1.jpg";
 function HarmoniousLiving() {
   return (
     <section className="block sm:flex max-w-screen-xl m-auto my-28 h:auto lh:h-[40vh] px-6 lg:px-20">
@@ -17,7 +17,7 @@ function HarmoniousLiving() {
       </div>
       <div className="w-full lg:w-1/2">
         <img
-          src="../../../../public/img/banner/banner1.jpg"
+          src={bannerImg1}
           alt="banner"
           className="object-cover h-full w-full"
         />

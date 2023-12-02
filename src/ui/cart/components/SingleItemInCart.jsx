@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { cartSliceActions } from "../../../store/Store";
+import closeIcon from "../../../../public/img/icons/closeIcon.svg";
 
 function SingleItemInCart(props) {
   const cartDispatch = useDispatch();
@@ -57,7 +58,7 @@ function SingleItemInCart(props) {
 
           <img
             className="w-[1rem] absolute top-2 right-2"
-            src="../../../../public/img/icons/closeIcon.svg"
+            src={closeIcon}
             alt="close icon"
             id={cartItem.uniqueId}
             onClick={handleRemoveItem}

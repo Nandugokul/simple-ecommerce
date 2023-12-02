@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import homeImage1 from "../../../../public/img/header/home-img-1.jpg";
+import homeImage2 from "../../../../public/img/header/home-img-2.jpg";
+import homeImage3 from "../../../../public/img/header/home-img-3.jpg";
+import homeImage4 from "../../../../public/img/header/home-img-4.jpg";
 
 function HeroSection() {
   return (
@@ -10,7 +14,7 @@ function HeroSection() {
         >
           <div className="imgWrapper w-full relative h-full">
             <img
-              src="../../../public/img/header/home-img-1.jpg"
+              src={homeImage1}
               alt="furniture image"
               className="object-cover w-full h-full"
             />
@@ -27,7 +31,7 @@ function HeroSection() {
         >
           <div className="imgWrapper relative h-full">
             <img
-              src="../../../public/img/header/home-img-2.jpg"
+              src={homeImage2}
               alt="skin care product"
               className="object-cover w-full h-full"
             />
@@ -44,7 +48,7 @@ function HeroSection() {
         >
           <div className="imgWrapper relative w-full h-full">
             <img
-              src="../../../public/img/header/home-img-3.jpg"
+              src={homeImage3}
               alt="kitchen"
               className="object-cover w-full h-full"
             />
@@ -61,7 +65,7 @@ function HeroSection() {
         >
           <div className="imgWrapper relative w-full h-full">
             <img
-              src="../../../public/img/header/home-img-4.jpg"
+              src={homeImage4}
               alt="electronics"
               className="object-cover w-full   h-full"
             />
