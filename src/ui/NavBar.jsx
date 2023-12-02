@@ -113,7 +113,12 @@ function NavBar() {
         }`}
       >
         <div className="shadow-[0_8px_6px_-6px_rgba(0,0,0,0.3)] w-full">
-          <Link to={"/"}>
+          <Link
+            onClick={() => {
+              setHamburgerOpen(false);
+            }}
+            to={"/"}
+          >
             <img
               src="../../../public/img/newlogo2.png"
               alt="logo"
@@ -121,13 +126,31 @@ function NavBar() {
             />
           </Link>
         </div>
-        <Link className="pl-6" to={"/"}>
+        <Link
+          onClick={() => {
+            setHamburgerOpen(false);
+          }}
+          className="pl-6"
+          to={"/"}
+        >
           HOME
         </Link>
-        <Link className="pl-6" to={"/productListings/All"}>
+        <Link
+          onClick={() => {
+            setHamburgerOpen(false);
+          }}
+          className="pl-6"
+          to={"/productListings/All"}
+        >
           CATEGORIES
         </Link>
-        <Link className="pl-6" to={"/productPage/loadFromHome"}>
+        <Link
+          onClick={() => {
+            setHamburgerOpen(false);
+          }}
+          className="pl-6"
+          to={"/productPage/loadFromHome"}
+        >
           PRODUCT OF THE DAY
         </Link>
         <div
