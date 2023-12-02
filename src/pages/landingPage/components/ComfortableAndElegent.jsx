@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import bannerImg2 from "../../../../public/img/banner/banner2.jpg";
 
 function ComfortableAndElegent() {
   return (
@@ -6,7 +7,7 @@ function ComfortableAndElegent() {
       <section className="max-w-screen-xl h-auto lg:h-[50vh] m-auto mt-28 block lg:flex mb-28 px-6 lg:px-20">
         <div className="w-full lg:w-1/2 h-[30vh] lg:h-full">
           <img
-            src="../../../../public/img/banner/banner2.jpg"
+            src={bannerImg2}
             alt="banner"
             className="object-cover h-full w-full"
           />
