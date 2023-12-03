@@ -22,7 +22,7 @@ function NavBar() {
     setNoOfItemsInCart(data);
   };
   const handleScroll = () => {
-    window.scrollY > 10 ? setNavBarShrink(true) : setNavBarShrink(false);
+    window.scrollY > 20 ? setNavBarShrink(true) : setNavBarShrink(false);
   };
   window.addEventListener("scroll", handleScroll);
   return (
